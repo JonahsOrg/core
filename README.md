@@ -23,10 +23,9 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 
 ## Graphs
 
+### Main repository overview
+
 ```mermaid
----
-title: Main repository overview
----
 
 gitGraph
        commit  id: "v0.0.1"
@@ -56,10 +55,9 @@ gitGraph
 
 ```
 
+### Submodule repository overview
+
 ```mermaid
----
-title: Submodule repository overview
----
 
 gitGraph
   commit
