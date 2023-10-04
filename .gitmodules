@@ -7,3 +7,6 @@
 [submodule "submodule-b"]
 	path = submodule-b
 	url = https://github.com/JonahsOrg/submodule-b.git
+[submodule "core.wiki"]
+	path = core.wiki
+	url = https://github.com/JonahsOrg/core.wiki.git
