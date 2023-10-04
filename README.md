@@ -5,9 +5,6 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 ## Submodule git commands
 
 | Command | Description | Example |
-
-<!-- prettier ignore -->
-
 |---------|-------------|---------|
 | `git submodule add [repository] [path]` | Add a new submodule to the current repository. | `git submodule add https://github.com/user/repo.git libs/repo` |
 | `git submodule init` | Initialize the submodules recorded in the index. | `git submodule init` |
