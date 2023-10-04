@@ -2,6 +2,18 @@
 
 The Master Repository ("Core") centralizes by referencing sub-repositories. It automates submodule creation, tracks changes, and compiles code for release. Rollback mechanisms ensure stability, while documentation provides clarity. The final code is released to production.
 
+## Core branches
+
+| Branch Name | Purpose | Description |
+|-------------|---------|-------------|
+| `main` or `production` | Production | This is the stable branch that represents what's currently in production. It should be deployable at any time. |
+| `develop` or `staging` | Integration | This branch serves as an integration branch for features and fixes. It's where you'd automatically pull in changes from submodules and ensure everything works together. |
+| `feature/*` | Feature Development | For new features. Typically, these might be more relevant in submodules, but if there's a feature that spans multiple submodules or requires coordinated changes in the master repo, it can be useful. |
+| `hotfix/*` | Quick Fixes | For urgent fixes that need to be applied directly to the production code. |
+| `release/*` | Pre-release | When preparing a new production release. This branch allows for final testing and any meta-level changes needed for a release (like updating documentation, version numbers, etc.). |
+
+
+
 ## Submodule git commands
 
 | Command | Description | Example |
