@@ -4,3 +4,6 @@
 [submodule "testing-project-automation"]
 	path = testing-project-automation
 	url = https://github.com/JonahJackson1/testing-project-automation.git
+[submodule "submodule-b"]
+	path = submodule-b
+	url = https://github.com/JonahsOrg/submodule-b.git
