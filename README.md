@@ -2,6 +2,7 @@
 
 The Master Repository ("Core") centralizes by referencing sub-repositories. It automates submodule creation, tracks changes, and compiles code for release. Rollback mechanisms ensure stability, while documentation provides clarity. The final code is released to production.
 
+
 ## Core branches
 
 | Branch Name | Purpose | Description |
@@ -11,7 +12,6 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 | `feature/*` | Feature Development | For new features. Typically, these might be more relevant in submodules, but if there's a feature that spans multiple submodules or requires coordinated changes in the master repo, it can be useful. |
 | `hotfix/*` | Quick Fixes | For urgent fixes that need to be applied directly to the production code. |
 | `release/*` | Pre-release | When preparing a new production release. This branch allows for final testing and any meta-level changes needed for a release (like updating documentation, version numbers, etc.). |
-
 
 
 ## Submodule git commands
@@ -32,6 +32,22 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 | `git pull --recurse-submodules` | Pull from the superproject and all its submodules. | `git pull --recurse-submodules` |
 | `git push --recurse-submodules=check` | Check if all submodule commits used by the superproject have been pushed. | `git push --recurse-submodules=check` |
 | `git push --recurse-submodules=on-demand` | Push all changed submodules (that have been pushed). | `git push --recurse-submodules=on-demand` |
+
+### Add a submodule
+
+```
+git submodule add https://github.com/<user or organization>/<repository>.git
+                  - ex. https://github.com/JonahsOrg/submodule-b.git
+
+git add .gitmodules <repository>
+                    - ex. submodule-b
+
+git commit -m "added <repository> to core"
+              - ex. "added submodule-b to core"
+
+git push
+```
+
 
 ## Graphs
 
