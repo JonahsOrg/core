@@ -58,9 +58,9 @@ git push
 gitGraph
        commit  id: "v0.0.1"
 
+       branch hotfix
        branch release
        branch staging
-       branch hotfix
        branch development
        branch submodule-a
 
