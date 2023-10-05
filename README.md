@@ -129,7 +129,7 @@ gitGraph
 gitGraph
   commit
   branch staging
-  branch develop
+  branch development
   branch bugFix
   branch feature1
 
@@ -138,11 +138,11 @@ gitGraph
   commit
   commit
 
-  checkout develop
+  checkout development
   merge feature1
 
   checkout staging
-  merge develop
+  merge development
 
   checkout main
   merge staging tag: "trigger a rebase"
@@ -152,11 +152,11 @@ gitGraph
   commit tag: "introduced bug"
   commit
 
-  checkout develop
+  checkout development
   merge feature2
 
   checkout staging
-  merge develop tag: "found a bug"
+  merge development tag: "found a bug"
 
   checkout main
   branch feature3
@@ -168,17 +168,17 @@ gitGraph
   merge staging
   commit tag: "fixed the bug"
 
-  checkout develop
+  checkout development
   merge bugFix tag: "merge bug fix"
 
   checkout feature3
   commit
 
-  checkout develop
+  checkout development
   merge feature3
 
   checkout staging
-  merge develop
+  merge development
 
   checkout main
   merge staging tag: "trigger a rebase"
