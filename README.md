@@ -6,12 +6,12 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 ## Core branches
 
 | Branch Name | Purpose | Description |
-|-------------|---------|-------------|
-| `main` or `production` | Production | This is the stable branch that represents what's currently in production. It should be deployable at any time. |
-| `staging` | Integration | This branch serves as an integration branch for features and fixes. It's where changes from `development` are merged and tested together before moving to `main`. |
-| `development` | Development Integration | This branch is where features and bug fixes are merged together before they are tested in `staging`. |
-| `hotfix/*` | Quick Fixes | For urgent fixes that need to be applied directly to the production code. |
-| `release/*` | Pre-release | When preparing a new production release. This branch allows for final testing and any meta-level changes needed for a release (like updating documentation, version numbers, etc.). |
+|--------------|---------------|--------------|
+| `main` or `production` | Production| This is the stable branch that mirrors what's currently in production. All code in this branch should be deployable at any time. Changes are introduced to this branch through merges from the `staging` branch. Whenever such merges occur, it might trigger rebuilds to ensure the master repository incorporates the latest stable changes.|
+| `staging`| Integration| Serving as the primary integration branch, this is where features and fixes from the `development` branch are combined and tested cohesively. Before merging into `staging`, a code review ensures that the integrated features and fixes meet the required standards. The `staging` branch acts as a buffer before changes are moved to the `main` or `production` branch, ensuring that only well-tested and integrated code reaches production. |
+| `development`| Development Integration  | This is a dynamic and active branch where all the development efforts converge. Features and bug fixes are merged into this branch before they are tested in `staging`. Once a feature or fix is complete, a pull request is marked, signaling that it's ready for code review. After the review, and once any feedback is addressed, the changes are merged into the `development` branch.|
+| `hotfix/*`| Quick Fixes| For urgent fixes that need to be applied directly to the production code. These branches allow for rapid fixes to critical issues in the production environment. Once the fix is complete and tested, it's merged into the `main` or `production` branch and subsequently into other relevant branches to ensure consistency.|
+| `release/*`| Pre-release| When preparing a new production release, this branch is used. It allows for final testing and any meta-level changes needed for a release, such as updating documentation, version numbers, etc. Once the release is deemed stable, it's merged into the `main` or `production` branch and then back into the `development` and `staging` branches to ensure all branches have the latest changes.|
 
 
 ## Submodule branches
