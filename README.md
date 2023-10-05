@@ -13,21 +13,7 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 | `hotfix/*`| Quick Fixes| For urgent fixes that need to be applied directly to the production code. These branches allow for rapid fixes to critical issues in the production environment. Once the fix is complete and tested, it's merged into the `main` or `production` branch and subsequently into other relevant branches to ensure consistency.|
 | `release/*`| Pre-release| When preparing a new production release, this branch is used. It allows for final testing and any meta-level changes needed for a release, such as updating documentation, version numbers, etc. Once the release is deemed stable, it's merged into the `main` or `production` branch and then back into the `development` and `staging` branches to ensure all branches have the latest changes.|
 
-
-## Submodule branches
-
-| Branch Name | Purpose | Description |
-|-------------|---------|-------------|
-| `main` | Production | This is the stable branch that represents what's currently in production. It should be deployable at any time. Merges from `staging` occur here, triggering rebases. |
-| `staging` | Integration | This branch serves as an integration branch for features and fixes. It's where changes from `development` are merged and tested together before moving to `main`. Bugs found in this branch are fixed in the `bugFix` branch. |
-| `development` | Development Integration | This branch is where features (`feature1`, `feature2`, `feature3`) and bug fixes (`bugFix`) are merged together before they are tested in `staging`. |
-| `feature1`, `feature2`, `feature3` | Feature Development | These branches are for developing individual features. Once a feature is complete, it's merged into `development`. |
-| `bugFix` | Bug Fixes | This branch is for fixing bugs. It was specifically used to fix a bug introduced in `feature2`. After the bug is fixed, changes are merged back into `development`. |
-
-
-## Graphs
-
-### Main repository overview
+### Core branches graph
 
 ```mermaid
 
@@ -98,7 +84,20 @@ gitGraph
 
 ```
 
-### Submodule repository overview
+
+
+
+## Submodule branches
+
+| Branch Name | Purpose | Description |
+|-------------|---------|-------------|
+| `main` | Production | This is the stable branch that represents what's currently in production. It should be deployable at any time. Merges from `staging` occur here, triggering rebases. |
+| `staging` | Integration | This branch serves as an integration branch for features and fixes. It's where changes from `development` are merged and tested together before moving to `main`. Bugs found in this branch are fixed in the `bugFix` branch. |
+| `development` | Development Integration | This branch is where features (`feature1`, `feature2`, `feature3`) and bug fixes (`bugFix`) are merged together before they are tested in `staging`. |
+| `feature1`, `feature2`, `feature3` | Feature Development | These branches are for developing individual features. Once a feature is complete, it's merged into `development`. |
+| `bugFix` | Bug Fixes | This branch is for fixing bugs. It was specifically used to fix a bug introduced in `feature2`. After the bug is fixed, changes are merged back into `development`. |
+
+### Submodule branches graph
 
 ```mermaid
 
