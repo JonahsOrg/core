@@ -58,9 +58,11 @@ git push
 gitGraph
        commit  id: "v0.0.1"
 
-       branch staging
        branch development
+       branch staging
        branch submodule-a
+       branch hotfix
+       branch release
 
        checkout submodule-a
        commit tag: "initial commit"
@@ -76,8 +78,13 @@ gitGraph
        merge development
        commit
 
+       checkout release
+       merge staging
+       commit tag: "pre-release adjustments"
+       commit
+
        checkout main
-       merge staging id: "v0.1.0" tag: "trigger a build"
+       merge release id: "v0.1.0" tag: "trigger a build"
 
        branch submodule-b
        commit tag: "initial commit"
@@ -95,8 +102,20 @@ gitGraph
        merge development
        commit
 
+       checkout release
+       merge staging
+       commit tag: "pre-release adjustments for submodule-b"
+       commit
+
        checkout main
-       merge staging id: "v1.0" tag: "trigger a build"
+       merge release id: "v1.0" tag: "trigger a build"
+
+       checkout hotfix
+       commit tag: "urgent fix"
+       commit
+
+       checkout main
+       merge hotfix tag: "hotfix applied"
 
 ```
 
