@@ -8,7 +8,8 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 | Branch Name | Purpose | Description |
 |-------------|---------|-------------|
 | `main` or `production` | Production | This is the stable branch that represents what's currently in production. It should be deployable at any time. |
-| `develop` or `staging` | Integration | This branch serves as an integration branch for features and fixes. It's where you'd automatically pull in changes from submodules and ensure everything works together. |
+| `staging` | Integration | This branch serves as an integration branch for features and fixes. It's where changes from `development` are merged and tested together before moving to `main`. |
+| `development` | Development Integration | This branch is where features and bug fixes are merged together before they are tested in `staging`. |
 | `hotfix/*` | Quick Fixes | For urgent fixes that need to be applied directly to the production code. |
 | `release/*` | Pre-release | When preparing a new production release. This branch allows for final testing and any meta-level changes needed for a release (like updating documentation, version numbers, etc.). |
 
@@ -18,10 +19,11 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 | Branch Name | Purpose | Description |
 |-------------|---------|-------------|
 | `main` | Production | This is the stable branch that represents what's currently in production. It should be deployable at any time. Merges from `staging` occur here, triggering rebases. |
-| `staging` | Integration | This branch serves as an integration branch for features and fixes. It's where changes from `development` are merged and tested together before moving to `main`. |
-| `development` | Development Integration | This branch is where features and bug fixes are merged together before they are tested in `staging`. |
-| `feature` | Feature Development | These branches are for developing individual features. Once a feature is complete, it's merged into `development`. |
-| `bugFix` | Bug Fixes | This branch is for fixing bugs. After the bug is fixed, changes are merged back into `development`. |
+| `staging` | Integration | This branch serves as an integration branch for features and fixes. It's where changes from `development` are merged and tested together before moving to `main`. Bugs found in this branch are fixed in the `bugFix` branch. |
+| `development` | Development Integration | This branch is where features (`feature1`, `feature2`, `feature3`) and bug fixes (`bugFix`) are merged together before they are tested in `staging`. |
+| `feature1`, `feature2`, `feature3` | Feature Development | These branches are for developing individual features. Once a feature is complete, it's merged into `development`. |
+| `bugFix` | Bug Fixes | This branch is for fixing bugs. It was specifically used to fix a bug introduced in `feature2`. After the bug is fixed, changes are merged back into `development`. |
+
 
 
 ## Submodule git commands
