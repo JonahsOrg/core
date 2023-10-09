@@ -22,7 +22,7 @@ jobs:
 
    - name: submodule_action
      id: submodule_action
-     uses: JonahsOrg/workflows/submodule_workflows@v0.0.1
+     uses: JonahsOrg/workflows/submodule_workflow@v0.0.1
      with:
       owner: ${{ github.repository_owner }}
       repo: ${{ github.event.repository.name }}
