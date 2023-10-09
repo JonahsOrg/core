@@ -1,12 +1,12 @@
-name: Set issue label
-run-name: Adding label to - ${{github.event.issue.title}}
+name: Init new issue tickets
+run-name: New issue - ${{github.event.issue.title}}
 
 on:
  issues:
   types: [opened]
 
 jobs:
- set-label:
+ initialize-new-issue:
   runs-on: ubuntu-latest
   name: set label on labelable
   steps:
@@ -14,7 +14,7 @@ jobs:
      id: checkout
      uses: actions/checkout@v4
 
-   - name: set label on issue
+   - name: set label, ${{vars.LABEL_TO_ADD_TO_ISSUE}}, on issue ${{ github.event.issue.number }}
      id: set-issue-label
      uses: JonahsOrg/workflows/set-issue-label@v0.0.2
      with:
@@ -22,7 +22,7 @@ jobs:
       repo: ${{ github.event.repository.name }}
       token: ${{ secrets.GITHUB_TOKEN }}
       issue_number: ${{ github.event.issue.number }}
-      label: 'test'
+      label: ${{vars.LABEL_TO_ADD_TO_ISSUE}}
 
    - name: Print Output
      id: output
