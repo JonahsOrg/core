@@ -6,17 +6,17 @@ on:
   types: [opened]
 
 jobs:
- initialize-new-issue:
+ set-label:
   runs-on: ubuntu-latest
-  name: initialize an issue ticket
+  name: set label on labelable
   steps:
    - name: Checkout
      id: checkout
      uses: actions/checkout@v4
 
-   - name: submodule_action
-     id: submodule_action
-     uses: JonahsOrg/workflows/set-issue-label@v0.0.2
+   - name: set label on issue
+     id: set-issue-label
+     uses: ./set-issue-label
      with:
       owner: ${{ github.repository_owner }}
       repo: ${{ github.event.repository.name }}
