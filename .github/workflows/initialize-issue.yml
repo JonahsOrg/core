@@ -25,7 +25,7 @@ jobs:
       label: ${{vars.LABEL_TO_ADD_TO_ISSUE}}
 
       # vars is repository variables
-      # env is environement variables
+      # env is environment variables
       # no idea how to call organization variables
 
    - name: create a linked branch
@@ -38,7 +38,7 @@ jobs:
       repo_id: ${{ github.event.repository.node_id }}
       issue_id: ${{ github.event.issue.node_id }}
       issue_title: ${{ github.event.issue.title }}
-      branch_to_copy: 'main'
+      branch_to_copy: ${{vars.BRANCH_TO_COPY}}
 
    - name: Print Output
      id: output
