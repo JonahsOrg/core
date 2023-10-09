@@ -1,0 +1,35 @@
+# https://docs.github.com/en/actions/learn-github-actions/contexts
+# https://docs.github.com/en/webhooks/webhook-events-and-payloads
+# https://github.com/alex-page/github-project-automation-plus
+# https://github.com/actions/add-to-project
+# https://docs.github.com/en/rest/overview/github-event-types?apiVersion=2022-11-28#issuesevent
+
+name: Init new issue tickets
+run-name: New feature - ${{github.event.issue.title}}
+
+on:
+ issues:
+  types: [opened]
+
+jobs:
+ initialize-new-issue:
+  runs-on: ubuntu-latest
+  name: initialize an issue ticket
+  steps:
+   - name: Checkout
+     id: checkout
+     uses: actions/checkout@v4
+
+   - name: submodule_action
+     id: submodule_action
+     uses: JonahsOrg/workflows@v0.0.1
+     with:
+      owner: ${{ github.repository_owner }}
+      repo: ${{ github.event.repository.name }}
+      token: ${{ secrets.GITHUB_TOKEN }}
+      issue_number: ${{ github.event.issue.number }}
+      issue_title: ${{ github.event.issue.title }}
+
+   - name: Print Output
+     id: output
+     run: echo "completed function call"
