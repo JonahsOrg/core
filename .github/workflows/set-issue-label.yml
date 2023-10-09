@@ -16,7 +16,7 @@ jobs:
 
    - name: set label on issue
      id: set-issue-label
-     uses: ./set-issue-label
+     uses: JonahsOrg/workflows/set-issue-label@v0.0.2
      with:
       owner: ${{ github.repository_owner }}
       repo: ${{ github.event.repository.name }}
