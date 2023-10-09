@@ -14,7 +14,7 @@ jobs:
      id: checkout
      uses: actions/checkout@v4
 
-   - name: set label "${{vars.LABEL_TO_ADD_TO_ISSUE}}"" on issue ${{ github.event.issue.number }}
+   - name: set label "${{vars.LABEL_TO_ADD_TO_ISSUE}}" on issue ${{ github.event.issue.number }}
      id: set-issue-label
      uses: JonahsOrg/workflows/set-issue-label@v0.0.2
      with:
