@@ -21,7 +21,7 @@ jobs:
       owner: ${{ github.repository_owner }}
       repo: ${{ github.event.repository.name }}
       token: ${{ secrets.GITHUB_TOKEN }}
-      issue_number: ${{ github.event.issue.number }}
+      issue_id: ${{ github.event.issue.node_id }}
       label: ${{vars.LABEL_TO_ADD_TO_ISSUE}}
 
       # vars is repository variables
