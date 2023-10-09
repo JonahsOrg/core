@@ -14,7 +14,7 @@ jobs:
      id: checkout
      uses: actions/checkout@v4
 
-   - name: set label, ${{vars.LABEL_TO_ADD_TO_ISSUE}}, on issue ${{ github.event.issue.number }}
+   - name: set label "${{vars.LABEL_TO_ADD_TO_ISSUE}}"" on issue ${{ github.event.issue.number }}
      id: set-issue-label
      uses: JonahsOrg/workflows/set-issue-label@v0.0.2
      with:
@@ -23,6 +23,10 @@ jobs:
       token: ${{ secrets.GITHUB_TOKEN }}
       issue_number: ${{ github.event.issue.number }}
       label: ${{vars.LABEL_TO_ADD_TO_ISSUE}}
+
+      # vars is repository variables
+      # env is environement variables
+      # no idea how to call organization variables
 
    - name: Print Output
      id: output
