@@ -16,7 +16,7 @@ jobs:
 
    - name: set label "${{vars.LABEL_TO_ADD_TO_ISSUE}}" on issue ${{ github.event.issue.number }}
      id: set-issue-label
-     uses: JonahsOrg/workflows/set-issue-label@v0.0.3
+     uses: JonahsOrg/workflows/set-issue-label@v0.0.4
      with:
       owner: ${{ github.repository_owner }}
       repo: ${{ github.event.repository.name }}
@@ -24,13 +24,9 @@ jobs:
       issue_id: ${{ github.event.issue.node_id }}
       label: ${{vars.LABEL_TO_ADD_TO_ISSUE}}
 
-      # vars is repository variables
-      # env is environment variables
-      # no idea how to call organization variables
-
    - name: create a linked branch
      id: create-linked-branch
-     uses: JonahsOrg/workflows/create-linked-branch@v0.0.3
+     uses: JonahsOrg/workflows/create-linked-branch@v0.0.4
      with:
       token: ${{ secrets.GITHUB_TOKEN }}
       owner: ${{ github.repository_owner }}
@@ -39,6 +35,16 @@ jobs:
       issue_id: ${{ github.event.issue.node_id }}
       issue_title: ${{ github.event.issue.title }}
       branch_to_copy: ${{vars.BRANCH_TO_COPY}}
+
+   - name: create a pull request
+     id: create-pr
+     if: steps.create-linked-branch.outcome == 'success'
+     uses: JonahsOrg/workflows/create-pr@v0.0.4
+     with:
+      token: ${{ secrets.GITHUB_TOKEN }}
+      repo_id: ${{ github.event.repository.node_id }}
+      issue_title: ${{ github.event.issue.title }}
+      merge_into_branch: ${{vars.MERGE_INTO_BRANCH}}
 
    - name: Print Output
      id: output
