@@ -21,8 +21,8 @@ The Master Repository ("Core") centralizes by referencing sub-repositories. It a
 gitGraph
        commit  id: "v0.0.1"
 
-       branch hotfix
        branch release
+       branch hotfix
        branch staging
        branch development
        branch submodule-a
@@ -40,15 +40,15 @@ gitGraph
 
        checkout staging
        merge development
-       commit
-
-       checkout release
-       merge staging
        commit tag: "pre-release adjustments"
+       commit
        commit
 
        checkout main
-       merge release id: "v0.1.0" tag: "trigger a build"
+       merge staging tag: "final testing"
+
+       checkout release
+       merge main id: "v0.1.0" tag: "trigger a build"
 
        checkout hotfix
        merge main
@@ -58,6 +58,11 @@ gitGraph
        checkout main
        merge hotfix tag: "hotfix applied"
 
+       checkout release
+       merge main id: "v0.1.1" tag: "trigger a build"
+
+
+       checkout main
        branch submodule-b
        commit tag: "initial commit"
        commit
@@ -73,14 +78,16 @@ gitGraph
        checkout staging
        merge development
        commit
-
-       checkout release
-       merge staging
        commit tag: "pre-release adjustments for submodule-b"
        commit
 
        checkout main
-       merge release id: "v1.0" tag: "trigger a build"
+       merge staging
+       
+       checkout release
+       merge main id: "v1.0" tag: "trigger a build"
+
+
 
 
 ```
